@@ -1,0 +1,117 @@
+#w-table {
+	width: 100%;
+
+}
+
+.el-table{
+   border: 1px solid #dfe6ec;
+   color:#1f2d3d;
+}
+
+.el-table th {
+	height: 46px;
+  background: #eef1f6;
+  color:#1f2d3d;
+   border-bottom:1px solid #dfe6ec!important;
+}
+
+.el-table th .icon-ques{
+   background: url('../../assets/img/icon/icon-ques.png') no-repeat;
+   display: inline-block;
+   width: 21px;
+   height: 21px;
+   display: inline-block;
+   vertical-align: middle;
+   margin-left: 3px;
+}
+
+
+.el-table td {
+	height: 52px;
+  border-bottom:1px solid #dfe6ec;
+}
+
+.el-table .cell {
+  white-space: nowrap;
+
+}
+.el-table.normal .cell {
+  white-space: normal;
+
+}
+.el-table td.pre .cell {
+  white-space: pre;
+}
+.el-table td, .el-table th{
+   padding:0!important;
+}
+
+
+#w-table .page-sum {
+    font-size: 14px;
+    color: #666;
+    text-align: right;
+    padding-top: 15px;
+}
+.wtype {
+    width: 105px;
+    outline: 0;
+    margin-left: 10px;
+}
+
+
+
+/*上传样式覆盖*/
+#el-upload{
+  color: #666;
+}
+#el-upload .el-upload{
+  margin-left: 16px;
+  margin-right: 26px;
+  float: left;
+}
+#el-upload .el-upload-list{
+  float: left;
+  background: #ededed;
+  color: #333;
+  text-align:center;
+  padding:5px 20px;
+  margin:5px 0 0 0;
+  font-family:"宋体";
+  display: none;
+
+}
+/*
+#el-upload .choose{
+  margin-top:8px;
+  float: left;
+}
+#el-upload .choose-file{
+  float:left;
+  margin-top:7px;
+}*/
+#el-upload .el-upload-list__item:first-child{
+  margin-top:0;
+}
+#el-upload .el-upload-list__item{
+  margin-top: 0;
+}
+.personalList .el-table th>.cell{
+   font-size: 22px!important;
+   color:#202d3d;
+   font-weight:normal;
+  height: 44px;
+}
+.jtype .el-input__inner{
+   height: 40px;
+}
+
+.wcont {
+    box-sizing: border-box;
+    padding: 30px 40px 10px;
+    min-height: 200px;
+
+    .blue {
+      color: #20a0ff;
+    }
+  }

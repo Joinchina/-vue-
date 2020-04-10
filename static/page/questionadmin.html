@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html id="gethtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<meta name="referrer" content="no-referrer">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	    <meta name="keywords" content="" />
+	    <meta name="description" content="" />
+		<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<!-- 引入样式 -->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<!-- 引入组件库 -->
+		<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+		
+
+		<title>问卷模板</title>
+		<style type="text/css">
+		body{
+			margin: 0;
+			padding: 0;
+		}			
+		#app{
+			width: 1000px;
+			margin: 0 auto;
+		}
+		#app dl{
+			padding: 22px 0 10px;
+    		margin: 0;
+		}
+		#app dl dd{
+			font-size: 16px;
+		    line-height: 2em;
+		    margin-left: 42px;
+		    margin-bottom: 20px;
+		    overflow: hidden;
+		}
+		#app dl dt{
+			margin-bottom: 20px;
+		}
+		#app dl dt h2{
+			font-size: 18px;
+		    font-weight: normal;
+		    margin: 0;
+		    padding-bottom: 16px;
+		}
+		#app dl dt h2 span{
+			font-size: 20px;
+		    color: #ff8521;
+		    margin-right: 10px;
+		}
+		#app dl dd p{
+			line-height: 1.5em;
+    		margin: 0 0 10px 0;
+		}
+		#app dl dd .progress-out{
+			width: 80%;
+		    height: 14px;
+		    float: left;
+		}
+		#app dl dd .progress-out .el-progress{
+			
+		}
+		#app dl dd .progress-out .el-progress .el-progress__text{
+			display: none;
+		}
+		#app dl dd .progress-out .el-progress .el-progress-bar__outer{
+			border-radius:0 ;
+		}
+		#app dl dd .progress-out .el-progress .el-progress-bar__outer .el-progress-bar__inner{
+			border-radius:0 ;
+		}
+		#app dl dd .progress-num{
+			box-sizing: border-box;
+		    width: 20%;
+		    float: left;
+		    padding-left: 18px;
+		    font-size: 20px;
+		    color: #999;
+		    line-height: 1em;
+		    margin-top: -4px;
+		}
+		#app dl dd .progress-num span{
+			
+		}
+		.keyword{
+			width: 100%;
+			overflow: hidden;
+			margin-bottom: 20px;			
+		}
+		.keyword h4{
+				float: left;
+				font-size: 16px;
+				color: #39467F;
+				margin: 0;
+		}
+		.keyword span{
+			border-top-right-radius: 30px;
+			border-top-left-radius: 30px;
+			border-bottom-right-radius: 30px;
+			font-size: 14px;
+			color: #333333;
+			margin-right: 16px;
+			padding: 0px 10px;
+			cursor: pointer;
+		}
+		.textbox{
+			width: 90%;
+		    height: auto;
+		    overflow-y: hidden;
+		    font-size: 16px;
+		    line-height: 1.5em;
+		    border: 1px solid #e3e3e3;
+		    background-color: #fdfdfd;
+		    padding: 18px 25px;
+		}
+		.title{
+			width: 100%;
+			overflow: hidden;
+		}
+		.title h1{
+			font-size: 22px;
+		    font-weight: normal;
+		    margin: 0;
+		    padding-bottom: 16px;
+		}
+		.title p{
+			font-size: 16px;
+		    font-weight: normal;
+		    margin: 0;
+		    padding-bottom: 16px;
+		}	
+		</style>
+	</head>
+	<body>
+		<section id="app">
+			<div class="title">
+				<h1>{{title}}</h1>
+				<p>提交人数：{{submitNum}}/{{totalNum}}</p>
+				<p>题目总数：{{questionCount}}</p>
+			</div>
+			<template v-for="(item, indexone) in quesList">
+				<dl v-if="item.type == 'SELECT'">
+					<dt>
+						<h2>
+							<span class="q" >Q{{indexone+1}}.</span>
+							{{item.question}}
+							<span class="type" v-if="type == 'QUESTIONNAIRE' " >
+								（单选）（{{item.required ? '必答' : '选答'}}）
+							</span>
+						</h2>
+					</dt>
+					<dd class="clearfix" v-for="(optStat, index) in item.optionStatistics">
+						<p class="tit-opt clearfix" >{{selList[index]}}
+							{{optStat.optionContent}}</p>
+						<div class="progress-out">
+							<el-progress :percentage="optStat.selectedCounts == 0 ? '0' : (optStat.selectedCounts / submitNum * 100) | mround " :stroke-width="14" :color="colorList[index]"></el-progress>
+						</div>
+						<div class="progress-num">
+							<span class="blue" :style="'color:'+colorList[index]">
+								{{optStat.selectedCounts == 0 ? '0' : (optStat.selectedCounts / submitNum * 100) | mround }}%&bull;</span> 
+								{{optStat.selectedCounts}}
+								人
+						</div>
+					</dd>
+				</dl>
+				<dl v-else-if="item.type == 'MUILTSELECT'">
+					<dt>
+						<h2>
+							<span class="q" >Q{{indexone+1}}.</span>
+							{{item.question}}
+							<span class="type" v-if="type == 'QUESTIONNAIRE' " >
+								（多选）（{{item.required ? '必答' : '选答'}}）
+							</span>
+						</h2>
+					</dt>
+					<dd class="clearfix" v-for="(optStat, index) in item.optionStatistics">
+						<p class="tit-opt clearfix" >
+							{{selList[index]}}
+							{{optStat.optionContent}}
+						</p>
+						<div class="progress-out">
+							<el-progress :percentage="optStat.selectedCounts == 0 ? '0' : (optStat.selectedCounts / submitNum * 100) | mround " :stroke-width="14" :color="colorList[index]"></el-progress>
+						</div>
+						<div class="progress-num">
+							<span class="blue"
+									:style="'color:'+colorList[index]"
+									 >{{optStat.selectedCounts == 0 ? '0' : (optStat.selectedCounts / submitNum * 100) | mround }}%
+								&bull;</span> {{optStat.selectedCounts}}人
+						</div>
+					</dd>
+				</dl>
+				<dl v-else-if="item.type == 'SUBJECTIVE'">
+					<dt>
+						<h2>
+							<span class="q" >Q{{indexone+1}}.</span>
+							{{item.question}}
+							<span class="type" v-if="type == 'QUESTIONNAIRE' " >
+								（问答）（{{item.required ? '必答' : '选答'}}）
+							</span>
+						</h2>
+					</dt>
+					<dd class="">
+						<div class="keyword">
+							<h4>关键词：</h4>
+							<span v-for="(word,index) in item.keywords" :key="index" :style="{background:keywordColor[index%5],border:'1px solid '+keywordColor[index%5]+''}" @click="setWorkcolor(keywordColor[index%5],word,item.answers,indexone)">{{word}}</span>
+						</div>
+						<div class="textbox" >
+							<p v-for="(answer, index) in item.answers" class="textWord">{{answer}}</p>
+						</div>
+
+					</dd>
+
+				</dl>
+			</template>
+		</section>
+		<script type="text/javascript">
+			window.onload=function(){
+				new Vue({
+					el:"#app",
+					data:{
+						questionCount:0,
+						submitNum:0,
+						totalNum:0,
+						selectcolor:true,
+						activityId: "",
+						paperId:"",
+						paperKey:"",
+						type:"",				// 结果类型
+						typeName:"",
+						closePrivilege:"",   // 是否有权限结束投票
+						status:"",
+						title:"",
+
+						totalNum:"",
+						quesNum:"",
+						quesList:"",
+						selList:["A","B","C","D","E","F","G","H","I","J",'K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
+						colorList:["#4fbeea", "#a9ca77", "#fec457", "#ff7d7a",
+							"#23a565", "#f496aa", "#f4a260", "#cd6ced", "#f7b560", "#ed6cbe",
+							"#4fbeea", "#a9ca77", "#fec457", "#ff7d7a",
+							"#23a565", "#f496aa", "#f4a260", "#cd6ced", "#f7b560", "#ed6cbe",
+							"#4fbeea", "#a9ca77", "#fec457", "#ff7d7a"],
+						paperType:{
+							"EVALUATION":"评价",
+							"INTROSPECTION":"反思",
+							"VOTE":"投票",
+							"QUESTIONNAIRE":"问卷",
+			
+						},
+						courseName:"",
+				        beginTime:"",
+				        endTime:"",
+				        crumbTpe:"",
+						endStatus: "",
+						TemModify:false,
+						loading:true,
+						setTimeFlag: false,		// 是否显示时间设置
+						setTimeEr:false, //起止时间设置
+						keywordColor:['#DAFFEE','#FFE25C','#EEEEEE','#FFE0DF','#EEEEEE'],//高频词的四种颜色
+						setkeyColor:'',
+					},
+					filters: {
+						mround: function(value) {
+							if (!value) return ''
+							value = Math.round(value)
+							return value
+						}
+					},
+					created(){
+						this.getquesList()
+					},
+					methods:{
+						
+						getquesList:function(){
+							//获取url参数
+							let parameter=this.GetUrlParms();
+							//发送一个潇https情求，在请求钱判断一下线上线下环境设置不同的baseUrl
+							let url="";
+							if(window.location.host=='10.98.24.67' || window.location.host=='mgr.shixunbao.cn' ||window.location.host=='mgr.shixunbao.cn:8081'){
+								url='/questionpaper/result'
+							}else{
+								url='/api/questionpaper/result'
+							}
+							let baseUrl="";
+														
+							axios({
+							  method: 'get',
+							  baseURL: baseUrl,
+							  url: url,
+							  headers:{
+								'Content-Type': 'application/x-www-form-urlencoded',
+								'Accept': 'application/json;charset=UTF-8',
+								'Authorization': parameter.token
+							  },
+							  params: {
+							    activityId :parameter.activityId ,
+							  }
+							}).then(res=>{
+								if(res.status==200){
+									console.log(res.data.data)
+									this.quesList=res.data.data.questions;
+									this.submitNum=res.data.data.submitNum;//总提交人数
+									this.questionCount=res.data.data.questionCount;
+									this.totalNum=res.data.data.totalNum;
+									this.description=res.data.description
+									this.title=res.data.data.title
+								}
+							}).catch(err=>{
+								console.log(err)
+							})			
+							
+						},
+						//获取url传递过来的参数
+						GetUrlParms:function() {
+						 var args=new Object();
+						 var query=window.location.search.substring(1);//获取查询串 
+						 var pairs=query.split("&");//在&处断开 
+						 for(var i=0;i<pairs.length;i++) { 
+						  var pos=pairs[i].indexOf('=');//查找name=value 
+						   if(pos==-1) continue;//如果没有找到就跳过 
+						   var argname=pairs[i].substring(0,pos);//提取name 
+						   var value=pairs[i].substring(pos+1);//提取value 
+						   args[argname]=unescape(value);//存为属性 
+						 };
+						 return args;
+						},
+					},
+				})
+			}
+		</script>
+	</body>
+	
+</html>

@@ -1,0 +1,633 @@
+html, body {
+  width: 100%;
+  height: 100%;
+}
+.x-main {
+  box-sizing: border-box;
+  width: -moz-calc(100% - 235px);
+  width: -webkit-calc(100% - 235px);
+  width: calc(100% - 235px);
+  height: 100%;
+  margin-left:235px;
+  background: #352f43 url("../img/rollcall/bg1.png") center bottom no-repeat;
+  background-size: 100% auto;
+  padding-bottom: 100px;
+}
+.x-main.full {
+	margin-left:0;
+	width:100%;
+	min-height:720px;
+}
+.x-main .x-subnav, .x-main .x-subnav1  {
+  position: relative;
+  width: 100%;
+  height: 76px;
+  background: #34c7af;
+}
+.x-main .x-subnav > img, .x-main .x-subnav1 > img {
+  display: block;
+  position: absolute;
+  width: 206px;
+  height: 53px;
+  top: 12px;
+  left: 50%;
+  margin-left: -103px;
+}
+.x-main .x-subnav .bg-left, .x-main .x-subnav1 .bg-left {
+  display: inline-block;
+  width: 60px;
+  height: 123px;
+  background: url("../img/rollcall/bg_left1.png") 0 0 no-repeat;
+  background-size: 60px 123px;
+  margin-top:12px;
+}
+.x-main .x-subnav .right, .x-main .x-subnav1 .right {
+  float: right;
+  color: #fff;
+}
+.x-main .x-subnav i, .x-main .x-subnav1 i {
+  display: block;
+  margin: 10px auto 3px;
+  cursor: pointer;
+}
+.x-main .x-subnav a, .x-main .x-subnav1 a {
+  display: inline-block;
+  min-width: 40px;
+  text-align: center;
+  margin-right: 40px;
+  color: #fff;
+  text-decoration: none;
+}
+.x-main .x-subnav .icon-full, .x-main .x-subnav1 .icon-full {
+  width: 27px;
+  height: 27px;
+  background: url("../img/rollcall/icon_full.png") 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+.x-main .x-subnav .icon-list2, .x-main .x-subnav1 .icon-list2{
+  width: 25px;
+  height: 29px;
+  background: url("../img/rollcall/icon_list.png") 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+.x-main .x-subnav .icon-cancel, .x-main .x-subnav1 .icon-cancel {
+  width: 23px;
+  height: 23px;
+  background: url("../img/rollcall/icon_cancel.png") 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+.x-main .x-subnav1 {
+  background: #484058;
+}
+.x-main .x-cont {
+  position: relative;
+  box-sizing: border-box;
+  width: 710px;
+  height: 553px;
+  margin: 0 auto;
+  text-align: center;
+}
+.x-main .x-choose{
+  position: absolute;
+  top: 30px;
+  right: -254px;
+  color: #fff;
+}
+.x-main .x-cont:before {
+  position: absolute;
+  top: 150px;
+  content: "";
+  width: 100%;
+  height: 50%;
+  background-color: #fff;
+}
+.x-main .x-cont .stop, .x-main .x-cont .go {
+  position: absolute;
+  margin-top: 55px;
+  margin-left: 290px;
+  z-index: 10;
+  display: block;
+  overflow: hidden;
+  width: 115px;
+  height: 87px;
+  text-indent: -999px;
+  background: url("../img/rollcall/btn_stop.png") 0 0 no-repeat;
+}
+.x-main .x-cont .go {
+  margin-top: -100px;
+  background: url("../img/rollcall/btn_go.png") 0 0 no-repeat;
+}
+.x-page1 {
+  opacity: 1;
+  height: auto;
+  transition: all 1s ease-in-out;
+}
+.x-page1.hide {
+  opacity: 0;
+  height: 0;
+}
+.x-page1.show {
+  opacity: 1;
+  height: auto;
+}
+.x-page1 > img {
+  position: relative;
+  z-index: 5;
+}
+.x-page1 .ques-box {
+  position: absolute;
+  margin-top: -340px;
+  margin-left: 150px;
+}
+.x-page1 .icon-ques {
+  display: inline-block;
+  margin: 35px;
+  width: 53px;
+  height: 74px;
+  background: url("../img/rollcall/icon_ques.png") 0 0 no-repeat;
+}
+.x-page1 .roll-box {
+  display: none;
+  width: 100%;
+  height: 150px;
+  margin-top: -373px;
+  background-color: #fff;
+}
+.x-page1 ul {
+  height: auto;
+  list-style: none;
+  padding: 30px 0 0;
+}
+.x-page1 ul li {
+  height: 88px;
+  line-height: 88px;
+  font-size: 86px;
+  color: #999;
+  letter-spacing: 30px;
+  overflow: hidden;
+}
+.x-page1 ul li.active {
+  overflow: hidden;
+  height: 150px;
+  line-height: 150px;
+  color: #333;
+  font-size: 100px;
+}
+.x-page1 ul li.prev {
+  box-sizing: border-box;
+  padding-top: 70px;
+}
+.x-page2 {
+  display: none;
+}
+.x-page2 .headpic {
+  display: block;
+  width: 116px;
+  height: 116px;
+  border-radius: 116px!important;
+  margin: 20px auto 14px;
+  border: 3px solid #9be4d8;
+  opacity: 0;
+  -webkit-transform: scale(0.1, 0.1);
+          transform: scale(0.1, 0.1);
+  -webkit-animation-duration: 1.2s;
+          animation-duration: 1.2s;
+  -webkit-animation-delay: .75s;
+          animation-delay: .75s;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+.x-page2 .check-name {
+  display: block;
+  width: 412px;
+  height: 102px;
+  margin: 0 auto;
+  background: url("../img/rollcall/btn_name.png") 0 0 no-repeat;
+  background-size: 100% 100%;
+  font-size: 60px;
+  color: #1b9cb3;
+  text-align: center;
+  line-height: 100px;
+  overflow: hidden;
+  // white-space: nowrap;
+  // text-overflow: ellipsis;
+  // padding: 0 50px;
+  opacity: 0;
+  -webkit-animation: 1s 0.5s ease-in both;
+          animation: 1s 0.5s ease-in both;
+}
+.x-page2 .evaluate {
+  margin: 45px auto 0;
+  text-align: center;
+  opacity: 0;
+  -webkit-animation: 1s 1.5s ease both;
+          animation: 1s 1.5s ease both;
+}
+.x-page2 .eval-title, .x-page2 .eval-title1 {
+  width: 500px;
+  margin: 0 auto 36px;
+  height: 1em;
+  font-size: 24px;
+  font-weight: normal;
+  background: url("../img/rollcall/line_l1.png") left center no-repeat, url("../img/rollcall/line_r1.png") right center no-repeat;
+}
+.x-page2 .eval-title1 {
+  color: #fff;
+  background: url("../img/rollcall/line_l1.png") left center no-repeat, url("../img/rollcall/line_r1.png") right center no-repeat;
+}
+.x-page2 .eval-desc {
+  list-style: none;
+  width: 480px;
+  margin: 0 auto 10px;
+}
+.x-page2 .eval-desc li {
+  float: left;
+  width: 50%;
+  height: 45px;
+  margin-bottom: 24px;
+  font-size: 26px;
+  line-height: 44px;
+  cursor: pointer;
+}
+.x-page2 .eval-desc i, .x-page2 .eval-desc span {
+  display: inline-block;
+  background-size: 100% 100%;
+}
+.x-page2 .eval-desc span {
+  width: 98px;
+  height: 45px;
+  -webkit-animation: 1s 1s ease-in-out both;
+          animation: 1s 1s ease-in-out both;
+}
+.x-page2 .eval-desc span.on {
+  -webkit-transform-origin: top center;
+  transform-origin: top center;
+  -webkit-animation-name: swing;
+  animation-name: swing;
+}
+.x-page2 .eval-desc i {
+  margin-right: 3px;
+  vertical-align: text-bottom;
+  -webkit-animation: 1s 0.1s ease-in-out both;
+          animation: 1s 0.1s ease-in-out both;
+}
+.x-page2 .eval-desc i.on {
+  -webkit-animation-name: bounceIn;
+          animation-name: bounceIn;
+}
+.x-page2 .eval-desc .good {
+  -webkit-animation: 1s 1.6s ease both;
+          animation: 1s 1.6s ease both;
+}
+.x-page2 .eval-desc .good > i {
+  width: 31px;
+  height: 32px;
+  background: url("../img/rollcall/icon_verynice1.png") 0 0 no-repeat;
+}
+.x-page2 .eval-desc .good > span {
+  background: url("../img/rollcall/btn_good.png") center center no-repeat;
+  color: #f99881;
+}
+.x-page2 .eval-desc .better {
+  -webkit-animation: 1s 1.8s ease both;
+          animation: 1s 1.8s ease both;
+}
+.x-page2 .eval-desc .better > i {
+  width: 28px;
+  height: 31px;
+  background: url("../img/rollcall/icon_nice1.png") center center no-repeat;
+}
+.x-page2 .eval-desc .better > span {
+  background: url("../img/rollcall/btn_better.png") center center no-repeat;
+  color: #fed072;
+}
+.x-page2 .eval-desc .common {
+  -webkit-animation: 1s 2s ease both;
+          animation: 1s 2s ease both;
+}
+.x-page2 .eval-desc .common > i {
+  width: 25px;
+  height: 39px;
+  background: url("../img/rollcall/icon_soso1.png") center center no-repeat;
+}
+.x-page2 .eval-desc .common > span {
+  background: url("../img/rollcall/btn_common.png") center center no-repeat;
+  color: #8fc4f9;
+}
+.x-page2 .eval-desc .absent {
+  -webkit-animation: 1s 2.2s ease both;
+          animation: 1s 2.2s ease both;
+}
+.x-page2 .eval-desc .absent > i {
+  width: 32px;
+  height: 33px;
+  background: url("../img/rollcall/icon_duty1.png") center center no-repeat;
+}
+.x-page2 .eval-desc .absent > span {
+  background: url("../img/rollcall/btn_absent.png") center center no-repeat;
+  color: #39d6cd;
+}
+.x-page2 .go-again {
+  display: block;
+  width: 257px;
+  height: 64px;
+  margin: 0 auto;
+  background: url("../img/rollcall/icon_again.png") center center no-repeat;
+  background-size: 100% 100%;
+  text-indent: -999px;
+  overflow: hidden;
+  -webkit-animation: 1s 2.4s ease both;
+          animation: 1s 2.4s ease both;
+}
+.x-page2.active .headpic {
+  -webkit-animation-name: zoom;
+          animation-name: zoom;
+}
+.x-page2.active .check-name {
+  -webkit-animation-name: zoom;
+          animation-name: zoom;
+}
+.x-page2.active .evaluate {
+  -webkit-animation-name: height;
+          animation-name: height;
+}
+.x-page2.active .good, .x-page2.active .better, .x-page2.active .common, .x-page2.active .absent {
+  -webkit-animation-name: bounceInUp;
+          animation-name: bounceInUp;
+}
+.x-page2.active .go-again {
+  -webkit-animation-name: bounceInUp;
+          animation-name: bounceInUp;
+}
+.x-pop {
+  box-sizing: border-box;
+  width: 379px;
+  height: 368px;
+  background: url("../img/rollcall/pop_bg.png") center center no-repeat;
+  background-size: 100% 100%;
+  padding-top: 107px;
+}
+.x-pop .icon-close-me {
+  position: absolute;
+  top: -10px;
+  right: 0;
+  margin-right: -15%;
+  width: 54px;
+  height: 54px;
+  background: url("../img/rollcall/close.png") center center no-repeat;
+  background-size: 100% 100%;
+  cursor: pointer;
+}
+.x-pop .tip {
+  position: absolute;
+  margin-top: -50px;
+  right: 24px;
+  width: 119px;
+  height: 50px;
+  background: url("../img/rollcall/pop_btn_bg.png") center center no-repeat;
+  background-size: 100% 100%;
+  font-size: 28px;
+  color: #fff;
+  line-height: 46px;
+  text-align: center;
+}
+.x-pop .ani-img {
+  display: block;
+  margin: 0 auto;
+  -webkit-transform: scale(.8);
+          transform: scale(.8);
+  transition: all 0.8s ease-in-out;
+}
+.x-pop .ani-img.active {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+.x-pop .desc {
+  font-size: 26px;
+  color: #333;
+  line-height: 1.6em;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.sign_check_bowser{
+	position:fixed; 
+	top :0px;
+	left:0;
+	top:0;
+	right:0;
+	bottom:0;
+	background-color:#000;
+	background: rgba(0, 0, 0, 0.5);
+	z-index:1040;
+	text-align:center
+}
+.sign_check_tips{
+	position:absolute;
+	top:0;
+	left: 0;
+	z-index:1050;
+	background:#fff;
+	height:70px;
+	padding-top:10px;
+	padding-bottom:30px;
+	padding-left:20%;
+	width:100%;
+	font-size:14px;
+	font-family:Arial;
+	font-weight:bold;
+}
+.sign_google{
+	float:right;
+	padding-right:30%;
+}
+
+@-webkit-keyframes zoom {
+  0% {
+    -webkit-transform: scale(0.2);
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+  }
+}
+@keyframes zoom {
+  0% {
+    -webkit-transform: scale(0.2);
+            transform: scale(0.2);
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@-webkit-keyframes height {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0, 500px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+  }
+}
+@keyframes height {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0, 500px);
+            transform: translate(0, 500px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+@-webkit-keyframes bounceIn {
+  0%, 100%, 20%, 40%, 60%, 80% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+  50% {
+    -webkit-transform: scale3d(2, 2, 2);
+    transform: scale3d(2, 2, 2);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes bounceIn {
+  0%, 100%, 20%, 40%, 60%, 80% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+  50% {
+    -webkit-transform: scale3d(2, 2, 2);
+    transform: scale3d(2, 2, 2);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+@-webkit-keyframes bounceInUp {
+  0%, 100%, 60%, 75%, 90% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 3000px, 0);
+    transform: translate3d(0, 3000px, 0);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+  75% {
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -5px, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes bounceInUp {
+  0%, 100%, 60%, 75%, 90% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 3000px, 0);
+    transform: translate3d(0, 3000px, 0);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+  75% {
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+  90% {
+    -webkit-transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -5px, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@-webkit-keyframes swing {
+  20% {
+    -webkit-transform: rotate3d(0, 0, 1, 15deg);
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+  40% {
+    -webkit-transform: rotate3d(0, 0, 1, -10deg);
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+  60% {
+    -webkit-transform: rotate3d(0, 0, 1, 5deg);
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, -5deg);
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}
+@keyframes swing {
+  20% {
+    -webkit-transform: rotate3d(0, 0, 1, 15deg);
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+  40% {
+    -webkit-transform: rotate3d(0, 0, 1, -10deg);
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+  60% {
+    -webkit-transform: rotate3d(0, 0, 1, 5deg);
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, -5deg);
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+}

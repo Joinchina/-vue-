@@ -1,0 +1,45 @@
+
+.login-tabs .el-input__inner:focus {
+   border: 1px solid #319c95;
+}
+.login-tabs .el-input__inner {
+    height: 44px;
+    border: 1px solid #eae0e8;
+    border-radius: 0;
+    background-color: #fbfbfb;
+    outline:0 none;
+    padding-left: 32px;
+    font-size: 16px;
+    color: #666;
+}
+ .login-tabs .el-input__inner:hover {
+    border: 1px solid #319c95;
+}
+
+.login-tabs .el-tabs__nav {
+    width: 100%;
+}
+.login-tabs .el-tabs__item {
+    width: 50%;
+    font-size: 18px;
+}
+.login-tabs .el-tabs__active-bar {
+    background-color: #319c95!important;
+}
+// tabs-line
+.el-tabs__active-bar {
+    background-color: #319c95!important;
+}
+.el-tabs__item {
+    text-align: center;
+    color: #666;
+}
+.el-tabs__item.is-active {
+    color: #319c95;
+}
+.el-tabs__item:hover {
+    color: #319c95;
+}
+.el-button--primary:focus, .el-button--primary:hover {
+    background: #2abaa1;
+}

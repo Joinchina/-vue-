@@ -1,0 +1,131 @@
+@import "icon.less";
+.search {
+    float: right;
+    width: 230px;
+    height: 40px;
+    border: #d7d8df 1px solid;
+    border-radius: 6px;
+    >input {
+        width: 190px;
+        height: 38px;
+        border: 0 none;
+        background-color: transparent;
+        padding: 0 8px;
+    }
+    >i {
+        width: 38px;
+        height: 38px;
+        line-height: 38px;
+        background-color: #fcfcfc;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 0 6px 6px 0;
+        border-left: 1px solid #d7d8df;
+        color: #666;
+        cursor: pointer;
+    }
+}
+
+.add-clazz,
+.w-add,
+.btn-export,
+.btn-full {
+    float: right; // width: 120px;
+    padding: 0 15px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    background-color: #11ADA6;
+    border-radius: 6px;
+    border: 0;
+    cursor: pointer;
+    margin-left: 12px;
+    i {
+        vertical-align:text-bottom;
+    }
+}
+
+.w-import-green {
+    float: right;
+    padding: 0 15px;
+    height: 40px;
+    line-height: 40px;
+    width: 118px;
+    border: 1px solid #8dc6c2;
+    border-radius: 6px;
+    color: #4ba8a2;
+    background-color: #f3faf9;
+    cursor: pointer;
+    margin-left: 12px;
+    vertical-align: text-bottom;
+}
+
+.btn-export {
+    .icon-export {
+        vertical-align: middle;
+    }
+}
+
+.btn-full {
+    background-color: #3f99f6;
+}
+
+.w-export {
+    background-color: #ffad57;
+}
+
+.w-import {
+    background-color: #489dec;
+}
+
+//用户布局
+#wuserList {
+    .w-content {
+        width: 100%;
+    }
+    .w-list {
+        float: right;
+        width: calc(~"100% - 188px");
+        background-color: #fff;
+        border-radius: 6px;
+        box-shadow: 0 0 3px #eee;
+        padding: 16px 30px 40px;
+    }
+}
+
+// 返回 导出 操作栏
+.handle {
+    margin-bottom: 15px;
+    .back {
+        font-size: 18px;
+        color: #666666;
+        letter-spacing: 0;
+        cursor: pointer;
+    }
+    .tip2 {
+        font-size: 14px;
+        color: #999999;
+    }
+    .right {
+        float: right;
+        .tip {
+            font-size: 16px;
+            color: #9B9B9B;
+            letter-spacing: 0;
+        }
+        .btn-green,
+        .btn-gray {
+            display: inline-block;
+            font-size: 16px;
+            line-height: 1em;
+            color: #FFFFFF;
+            letter-spacing: 0;
+            background: #35A69D;
+            padding: 10px 20px;
+        }
+        .btn-gray {
+            background: #999;
+            border-radius: 6px;
+        }
+    }
+}

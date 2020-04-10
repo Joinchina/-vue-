@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+  <title></title>
+  <link href="assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="assets/pages/css/profile.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="assets/pages/css/components.min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+  <script type="text/javascript" src="assets/global/plugins/jquery.min.js"></script>
+  <link rel="shortcut icon" href="/static/favicon.ico" />
+</head>
+<body>
+<div class="sign_screen_header sign_screen_height:112px;bottom:15px;background-color:#534e5f;border:1px;header_p"><img src = "assets/pages/img/sign/sign_bg_logo.png"></div>
+<div class="row sign_screen_width" style="margin:10px;">
+  <div class="sign_left">
+    <div style="position: relative;">
+      <div class="sign_load" style="position: absolute;left: 0; top: 0; z-index: 500;"><img src = "assets/pages/img/sign/sign_bg_load.gif" width="315" height="315"> </div>
+      <div id="QRCode" style="display:none;" style="position: absolute;left: 0; top: 0; z-index: 300;"><img src="javascript:void();" style="width:300px; height:300px;" ></div>
+      <div class="qurcode_wap" id="qurcode_wap" style="display:none">
+        <div id="qrcodeCanvas" style="display:none;">
+
+        </div>
+      </div>
+    </div>
+    <div class="container" style="font-size:18px;color:#fff;width:300px;padding:10px 0 0 0;margin:0;text-align:center">请使用师训宝APP扫码或微信扫码</div>
+  </div>
+  <div class = "sign_rg">
+    <div class="row sign_row_hei userList" id="userList" >
+
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom" style="height:112px;bottom:0;background-color:#fff6e9;border:1px;">
+  <div class="row sanfont" style="margin-left:124px;font-size:20px;margin:0 auto;">
+    <div class = "sign_screen_bt">
+      <div class="col-md-8">
+        <div class="row" style="height:40px;line-height:40px;margin-top:12px;">
+          <div class="col-md-2" style="float:left;width:230px">
+            <div style="font-size:20px;color:#333;">完成签到<span style="margin-left:14px;font-size:30px;color:#f96e20;" id="finishCount"></span></div>
+          </div>
+          <div class="col-md-10" style="float:left;width:300px">
+            <div style="font-size:20px;color:#333;">预计签到<span style="margin-left:14px;font-size:30px;color:#f96e20;" id="totalCount"></span></div>
+          </div>
+        </div>
+        <div style = "clear:both"></div>
+        <div class="row" style="height:40px;line-height:40px;margin-top:0px;">
+          <div class="col-md-2" style="float:left; width:230px">
+            <div style="font-size:20px;color:#333;">当前时间<span style="margin-left:14px;font-size:30px;color:#f96e20;" id="currentTime"></span></div>
+          </div>
+          <div class="col-md-10" style="float:left;width:300px">
+            <div style="font-size:20px;color:#333;">剩余时间<span style="margin-left:14px;font-size:30px;color:#f96e20;" id="remainTime"></span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-4" style="padding-top:20px;">
+      <div class="" style="position:absolute;right:2%;">
+        <span style="display:block;float:left;padding:0 10px 0 0;"><a href="javascript:void(0)" id="load"><img src="assets/pages/img/sign/icon_scan.png" alt="下载" title="下载" /></a></span>
+        <!--<span style="display:block;float:left;display:none"><img src="assets/pages/img/icon_full-screen.png" alt="全屏" title="全屏" id="fullScreen"/></span>-->
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- END PAGE LEVEL SCRIPTS -->
+<div id="checkBrowser" style="display:none" class="bb">
+  <div class="sign_check_bowser"></div>
+  <div class = "sign_check_tips">
+    <div>为了能达到最佳的显示效果，强烈建议您使用Chrome浏览器来查看此页面。</div>
+    <div class="sign_google"><a href="http://w.x.baidu.com/alading/anquan_soft_down_ub/14744"><img src="assets/pages/img/sign/sign_google.png"/></a></div>
+  </div>
+</div>
+
+<!--删除签到后提示-->
+<!-- 模态框（Modal） -->
+<div class="modal fade errorMsg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" 
+            aria-hidden="true">×
+        </button>
+        <h4 class="modal-title" id="myModalLabel">
+          提示
+        </h4>
+      </div>
+      <div class="modal-body">
+        该签到已被删除，请联系班主任
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" onclick="confirmPage()">确定
+        </button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<script src="assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/pages/scripts/common.js" type="text/javascript"></script>
+<script src="assets/pages/scripts/sign_screen.js" type="text/javascript"></script>
+<script src="assets/pages/scripts/utf.js" type="text/javascript"></script>
+<script src="assets/pages/scripts/jquery.qrcode.js" type="text/javascript"></script>
+<script type="text/javascript">
+   function confirmPage(){
+      window.close();
+   }
+</script>
+</body>
+</html>

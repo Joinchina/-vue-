@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta  name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>学员签到</title>
+<!-- 
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
+ -->
+ <script type="text/javascript" src="js/jquery.min.js"></script>
+ <script type="text/javascript">
+    var params = {};
+
+    //old
+    if(location.href.indexOf('?')>0 && location.href.indexOf("&")>0){
+
+        var paramStr = location.href.substring(location.href.indexOf('?') + 1);  // xx = xxx & xx = xxx
+        paramStr = paramStr.replace(/#/g,"");
+        var paramArry = paramStr.split('&');
+        if(paramArry && paramArry.length>0){
+                for(var i=0;i<paramArry.length;i++){
+                    var key = paramArry[i].split('=')[0];
+                    var value = paramArry[i].split('=')[1];
+                    params[key] = value;
+                }
+        }
+
+    //new
+    }else{
+
+        var paramStr = location.href.substring(location.href.indexOf('?') + 1);
+        var str = paramStr.split("=")[1].split(",");
+        params["type"] = str[0];
+        params["id"] = str[1];
+        params["timestamp"] = parseInt(str[2]);
+        params["deadline"] = parseInt(str[3]);
+
+      
+    }
+
+    if(params["timestamp"]){
+        var url = "/system/server/currentTimeMillis";
+        $.ajax({
+            url:url,
+            data : {}, 
+            dataType:"json",
+            method:'get',
+            contentType:'application/json',
+            success:function(res){
+
+                //获取服务器时间
+                var serverTime = res.data;
+
+                //获取二维码时间戳
+                var timestamp = params["timestamp"];
+
+                //服务器规定有效时间
+                var serverDeadline = params["deadline"];
+
+                if(((serverTime - timestamp)/1000) <= serverDeadline){
+
+                    //二维码正常
+                    $("#effective_box").hide();
+                    $("#question_box").show();
+
+                }else{
+
+                    //二维码失效了
+                    $("#effective_box").show();
+                    $("#question_box").hide();
+
+                }   
+
+
+
+
+            }
+        })
+    }
+   
+ </script>
+<link rel="stylesheet" type="text/css" href="css/toastr.min.css"/>
+<style type="text/css">
+body, section, div, h2, p, ul, ol, li, h3 {
+    margin: 0;
+    padding: 0
+}
+html{
+  background-size:100%;
+  font-size:62.5%;
+  background:#f9f8f8;
+}
+input[type="submit"],
+ input[type="reset"],
+ input[type="button"],
+ input[type="text"],
+ button { -webkit-appearance: none; }
+.header{
+	border-bottom:1px solid #e3e3e3;
+	padding-top:1.5rem;
+	padding-bottom:1.5rem;
+	background:#fff;
+	width:100%;
+	height:100%;
+	backgound:#fff;
+}
+.header .load{
+	float:right;
+	padding-right:1.5rem; 
+	padding-top:1.7rem;
+	font-size:2rem;
+	color:#ff7e00
+}
+.header .load a,a:hover{
+	color:#ff7e00;
+	text-decoration:none
+}
+.header .left{
+	float:left;
+	padding-left:0.8rem;
+	width:5%
+}
+.header .img_log{
+	width:6.1rem;
+	height:6.1rem;
+}
+.header .rg{
+	padding-left:7.5rem;
+	text-align:left;
+
+}
+.header .rg h1{
+	font-size:2.3rem;
+	color:#191919;
+	margin:0;
+	padding:0.3rem 0 0 0;
+	font-weight:normal;
+}
+.header .rg p{
+	font-size:1.6rem;
+	color:#666;
+	margin:0;
+	padding:0.1rem 0 0 0;
+}
+.container{
+    text-align: center;
+     display: inline-block;
+     width: 100%;
+     height: 100%;
+     font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+    
+}
+.form{
+    text-align: center;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding-bottom: 42px;
+    position: initial;
+    width: auto;
+    border: none;
+    color:#666;
+}
+
+.gray{
+	color:#b5b5b5;
+	height:4.2rem;
+	width:100%;
+	border-radius:5px;
+	border:1px solid #eeedeb;
+	font-size:1.5em;
+	padding-left:0.3rem;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+	-webkit-box-sizing:border-box; /* Safari */
+}
+.btn_sign{
+	border: none;
+	font-size: 2.1rem;
+	border-radius:7px;
+	margin-top:2.75rem;
+	color: white;
+	background:#ff7e00;
+	text-align:center;
+	width:100%;
+	height:60px;
+	line-height:60px;
+}
+</style>
+</head>
+<body style="width:100%;">
+<div class="container" id="question_box" style="width:100%;">
+	<!-- header_start -->
+	<div class="header">
+			<div class="load"><a href="stu.html" id="load" >下载</a></div>
+			<div class = "left">
+				<div class="img_log">
+					<a href = "#"><img src = "img/sign/logo-load.png" style="width:100%;height:100%;"/></a>
+				</div>
+			</div>
+			<div class = "rg">
+				<h1>师训宝</h1>
+				<p>做有温度的教师培训</p>
+			</div>
+			<div style="clear:both"></div>
+		
+	</div>
+    <div  class="form">
+        <div style="text-align:left;margin-top:15px;font-size:1.8rem;">1.您的姓名是？</div>
+        <div style="text-align:left;margin-top:10px;">
+            <input id="name" name="name" class="gray" type="text" placeholder = "请输入您的姓名">
+        </div>
+        <div style="text-align:left;margin-top:2rem;font-size:1.8rem;">2.您的手机号是？</div>
+        <div style="text-align:left;margin-top:10px;">
+            <input id="phone" name="phone" placeholder = "请输入您的手机号码" class="gray" type="text">
+        </div>
+        <div style="margin-top: 16px;">
+            <input id="submit" class="btn_sign" type="button" value="签到" id="button-1"/>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="success_box" style="display:none;">
+    <div style="margin-top: 30px" align="center">
+        <img alt="" src="img/sign/sign_success.png" style="height:60px;">
+    </div>
+    <div style="margin-top: 12px;"><span style="font-size: 14px;" id="successMessageDiv">签到成功，感谢您的参与！</span></div>
+    <div style="margin-top:30px;">
+        <img alt="" src="img/sign/app.png" style="height:220px;">
+    </div>
+    <div style="margin-top: 12px;"><span style="font-size: 14px;">长按图片识别二维码</span></div>
+    <div style="margin-top: 12px;"><span style="font-size: 14px;">下载师训宝获取培训最新活动</span></div>
+    <div style="margin-top: 20px;"><span style="font-size: 18px;">您可以通过以下账号登陆师训宝APP</span></div>
+    <div style="margin-top: 12px;font-size:14px;">用户名：<span style="color:#F6BB4B;" id="username"></span><span style="margin-left:10px;">初始密码：</span><span style="color:#F6BB4B;" id='plainPassword'>123456</span></div>
+</div>
+<div class="container" id="fail_box" style="display:none;">
+    <div style="margin-top:50px"></div>
+    <div style="margin-top:12px;"><span style="font-size: 20px;">签到失败！</span></div>
+    <div style="margin-top:20px;"><span style="font-size: 18px;" id="failReason">如信息填写正确，请联系班主任！</span></div>
+    <div style="margin-top:10px;">
+        <img alt="" src="img/sign/app.png" style="height:220px;">
+    </div>
+    <div style="margin-top: 12px;"><span style="font-size: 14px;">长按图片识别二维码</span></div>
+    <div style="margin-top: 12px;"><span style="font-size: 14px;">下载师训宝获取培训最新活动</span></div>
+</div>
+
+<!--二维码失效时间-->
+<div class="container" id="effective_box" style="display: none;">
+     <div style="margin-top:50px;">
+        <img alt="" src="img/sign/fail.png" style="width: 35%; height: auto;">
+    </div>
+    <div style="margin-top:12px;">
+       <span style="font-size: 18px;background: url(img/sign/fail-b.png) no-repeat left 5px; background-size:15%;display:inline-block;height:35px;line-height: 30px; padding-left: 25px;"> 扫码失败！
+       </span>
+    </div>
+    <div style="margin-top:20px;text-align:center;line-height: 28px;"><span style="font-size: 16px;" id="failReason">当前二维码已失效，请扫描屏幕上<br/>最新二维码进行签到~</span></div>
+   
+</div>
+
+
+
+<!-- 
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+ -->
+<script type="text/javascript" src="js/toastr/toastr.min.js"></script>
+<script type="text/javascript">
+ //    var params = {};
+	// if(location.href.indexOf('?')>0){
+	//     var paramStr = location.href.substring(location.href.indexOf('?') + 1);  // xx = xxx & xx = xxx
+	//     paramStr = paramStr.replace(/#/g,"");
+	//     var paramArry = paramStr.split('&');
+	//     if(paramArry && paramArry.length>0){
+	//         for(var i=0;i<paramArry.length;i++){
+	//             var key = paramArry[i].split('=')[0];
+	//             var value = paramArry[i].split('=')[1];
+	//             params[key] = value;
+	//         }
+	//     }
+	// }
+
+    toastr.options = {  
+        closeButton: false,  
+        debug: false,  
+        progressBar: true,  
+        positionClass: "toast-top-center",  
+        onclick: null,  
+        showDuration: "300",  
+        hideDuration: "500",  
+        timeOut: "2000",  
+        extendedTimeOut: "1000",  
+        showEasing: "swing",  
+        hideEasing: "linear",  
+        showMethod: "fadeIn",  
+        hideMethod: "fadeOut"  
+    }; 
+    var $toastElement = null;
+    $("#submit").on("click",function(){
+    	$("#submit").attr("disabled", true);// 将按钮置为不可用
+    	var available = true;
+        var name = $('#name').val();
+        var phone = $('#phone').val();
+        if(!name || name.replace(/\s/g, '').length<=0){
+            available = false;
+        }
+        if(!phone || phone.replace(/\s/g, '').length<=0){
+            available = false;
+        }
+        if(!available){
+        	if(window.toastr){
+                if(!!$toastElement){
+                    $toastElement.hide();
+                }
+	            toastr.warning("姓名和手机号必须填");
+	            $("#submit").attr("disabled", false);// 将按钮置为可用状态
+	            return;
+            }
+        }
+        
+        if(available){
+            // 表单校验通过 
+            var url = "/sign/user/web/finish?";
+            url += "signId=" + params['id'];
+            if(params['timestamp']){
+	            url += "&timestamp=" + params['timestamp'];
+            }
+            url += "&name=" + name;
+            url += "&phone=" + phone;
+            $.ajax({
+                url:url,
+                data : {}, 
+                dataType:"json",
+                method:'POST',
+                contentType:'application/json',
+                success:function(res){
+                    if(res && res.status==200){
+                        if(res.data.username){
+                        	// 签到成功
+                        	$('#username').html(res.data.username);
+                        	$("#plainPassword").html(res.data.plainPassword);
+	                        $('#question_box').hide();
+	                        $('#success_box').show();
+	                        $('#fail_box').hide();
+	                        
+	                        if(res.data.isFirst){
+	                        	$('#successMessageDiv').html('签到成功！感谢您的参与！');
+	                        }else{
+	                        	$('#successMessageDiv').html('您已经签到啦！');
+	                        }
+                        }else if(res.data.failReason){
+                        	// 签到失败
+                        	$('#failReason').html(res.data.failReason);
+	                        $('#question_box').hide();
+	                        $('#fail_box').show();
+	                        $('#success_box').hide();
+                        }
+                    }else{
+                        // 签到失败
+	                    $('#question_box').hide();
+	                    $('#fail_box').show();
+	                    $('#success_box').hide();
+                    }
+                }
+            });
+        }else{
+        	if(window.toastr){
+                if(!!$toastElement){
+                    $toastElement.hide();
+                }
+                $toastElement = toastr.warning(data.message);
+            }
+        }
+    })
+   
+    
+</script>
+</body>
+</html>

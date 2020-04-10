@@ -1,0 +1,30 @@
+ /*shixh 2017-09-18*/
+html, body, div, h1, h3, p, pre, a, address, em, img, dl, dt, dd, ol, ul, li, form, label, tbody, tr, th, td {font-family: "microsoft yahei";margin: 0;padding: 0;border: 0;outline: 0;font-weight: inherit;font-style: inherit}
+html, body {color:#fff;width: 100%;height: 100%;font-size:18px;font-family: "microsoft yahei", 'SimSun', Tahoma, Verdana, Arial, Helvetica, sans-serif;font-size: 100%;}
+ul, ol, li {list-style: none;}
+img,dl,dd,dt {margin: 0;padding: 0;border: 0;outline: 0;}
+a,i{text-decoration: none;}
+.clear{clear:both;}
+body{background: #000000}
+.container{width:800px;margin:0 auto;padding:0;height: 600px;overflow: hidden;}
+
+.tagBall {
+	width:800px;
+	height:600px;
+	position:absolute; 
+}
+.tag {
+	display:block;
+	position:absolute;
+	left:0px;
+	top:0px;
+	color:#fff;
+	text-decoration:none;
+	font-size:0px;
+	font-family:sszh; 
+	text-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+}
+.tag:hover{text-decoration:none;}
+
+
+ 

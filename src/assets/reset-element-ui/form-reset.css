@@ -1,0 +1,78 @@
+.form-reset .el-form-item__label {
+	font-size: 18px;
+	color: #333;
+}
+.form-reset .el-radio__label {
+	font-size: 16px;
+}
+
+.record-form-reset .el-form-item__label{
+	font-size: 18px;
+	width: 100px!important;
+}
+.record-form-reset .el-form-item__label{
+	font-size: 18px;
+	width: 100px!important;
+}
+.record-form-edit .el-form-item__label{
+	font-size: 18px;
+	width: 130px!important;
+}
+.record-form-reset .el-form-item__content{
+	margin-left: 100px!important;
+}
+.record-form-edit .el-form-item__content{
+	margin-left: 130px!important;
+}
+
+.menu-rg .el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner{
+	background:#35a69d!important;
+}
+
+.menu-rg .el-checkbox__input.is-checked+.el-checkbox__label{
+	color: #333;
+}
+/*.menu-rg .el-checkbox__inner:hover{
+	border-color: #dcdfe6;
+}*/
+
+.net-ruleForm .el-form-item__label{
+	width: 150px!important;
+	text-align: left!important;
+}
+.net-ruleForm .el-form-item{
+	margin-bottom: 0;
+	display: inline-block;
+	width: 100%;
+}
+.net-ruleForm .el-form-item__content{
+	line-height: 25px;
+	padding-top: 5px;
+}
+.rules .el-dialog__body{
+	max-height: 600px;
+}
+.el-cascader-menu{
+	max-width: 300px;
+	height: 250px!important;
+}
+.el-select-dropdown__item .corner{
+		position: absolute;
+		display: inline-block;
+		right: 10px;
+		top: 7px;
+		width: 15px;
+		height: 15px;
+	  	background: url('../img/icon/icon-full-yes.png') no-repeat right center;
+ }
+
+
+
+.x-dropdown .el-icon-arrow-up:before{
+	content: "\E60B"!important;
+	color: #333;
+	font-size: 18px;
+}
+.x-dropdown input::-webkit-input-placeholder {
+	color: #666!important;
+}

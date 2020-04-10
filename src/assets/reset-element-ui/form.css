@@ -1,0 +1,311 @@
+.dialog-form .el-dialog {
+    border-radius: 4px;
+}
+
+.dialog-form .el-dialog__body {
+    padding: 30px 42px 30px 15px;
+    /*padding: 30px 15px;*/
+}
+.dialog-temp .el-dialog__body {
+    padding: 0;
+}
+.dialog-form .el-dialog__title {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.dialog-form .el-dialog__header {
+    height: 58px;
+    background-color: #35a69d;
+    border-radius: 4px 4px 0 0;
+    padding: 16px 20px;
+}
+
+.dialog-form .el-dialog__headerbtn {
+    width: 28px;
+    height: 28px;
+    margin-top: -28px;
+    margin-right: -28px;
+}
+
+.dialog-form .el-dialog__headerbtn .el-dialog__close:before {
+    content: "";
+    display: none;
+}
+
+.dialog-form .el-dialog__headerbtn .el-dialog__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    width: 28px;
+    height: 28px;
+    background: url("../img/icon/icon-close.png") 0 0 no-repeat;
+    background-size: 100%;
+}
+
+.dialog-form .el-form-item {
+    /*margin-bottom: 40px;*/
+}
+
+.dialog-form .el-form-itemt {
+    margin-bottom: 30px;
+}
+
+.el-input.is-disabled .el-input__inner,
+.dialog-form .el-textarea.is-disabled .el-textarea__inner {
+    background-color: #00000003;
+    color: #666;
+}
+
+.j-group-detail .el-form-item__label {
+    font-size: 20px;
+}
+
+.el-form-item__label {
+    font-size: 16px;
+    color: #333;
+}
+
+.dialog-form .el-input__inner,
+.dialog-form .el-textarea__inner {
+    color: #666;
+    font-size: 15px;
+}
+
+.dialog-form .el-textarea__inner {
+    height: 150px;
+}
+
+.dialog-form .el-textarea_width {}
+
+.dialog-form .el-textarea_width textarea {
+    width: 418px;
+    height: 160px;
+}
+
+.dialog-form .el-dialog__footer {
+    background-color: #fbfbfb;
+    height: 72px;
+    border-radius: 0 0 4px 4px;
+    padding: 18px 20px;
+}
+
+.dialog-form .el-button--primary {
+    background-color: #35a69d;
+    border-color: #35a69d;
+}
+
+.dialog-form .el-button:focus,
+.dialog-form .el-button:hover {
+    color: #35a69d;
+    border-color: #35a69d;
+}
+
+.dialog-form .el-button--primary:focus,
+.dialog-form .el-button--primary:hover {
+    color: #fff;
+}
+
+.dialog-form .el-button {
+    padding: 10px 35px;
+}
+
+.homework-con .el-form-item__content {
+    margin-left: 0!important;
+}
+
+.homework-con .el-form-item__content .el-textarea__inner {
+    width: 75%;
+    height: 94px;
+    font-size: 16px;
+    border: 1px solid #bfcbd9;
+    color: #666;
+}
+
+.avatar-uploader .el-form-item__content {
+    margin-left: 110px!important;
+}
+.w-wang .avatar-uploader .el-form-item__content {
+    margin-left: 110px!important;
+}
+.el-transfer-panel {
+    width: 35%;
+    display: inline-block;
+}
+
+.el-transfer__button {
+    border-radius: 4px;
+}
+
+.el-transfer-panel__filter .el-input__inner {
+    border-radius: 4px!important;
+}
+
+.wsel-res .el-transfer-panel {
+    /*width: 44%;*/
+    text-align: left;
+}
+
+.wsel-res .el-transfer {
+    text-align: center;
+}
+
+.selectStudent .el-dialog--small {
+    /*width: 36%;*/
+}
+
+.el-transfer-panel__filter .el-input__inner {
+    height: 26px;
+}
+
+.selectStudent .el-button {
+    padding: 8px 12px;
+}
+
+.wsel-res .el-button {
+    padding: 8px 12px;
+}
+
+.selectStudent .el-button.is-disabled,
+.selectStudent .el-button.is-disabled:focus,
+.selectStudent .el-button.is-disabled:hover {
+    background: #eef1f6;
+    cursor: not-allowed;
+    border-color: #d1dbe5;
+}
+
+.wsel-res .el-button.is-disabled,
+.wsel-res .el-button.is-disabled:focus,
+.wsel-res .el-button.is-disabled:hover {
+    background: #eef1f6;
+    cursor: not-allowed;
+    border-color: #d1dbe5;
+}
+
+.wsel-res .el-transfer-panel__item {
+    height: auto;
+}
+
+.wsel-res .el-transfer-panel__item .el-checkbox__label {
+    white-space: initial;
+    padding-left: 20px;
+}
+
+.wsel-res .el-transfer-panel__item .el-checkbox__label span {
+    white-space: initial;
+}
+
+.j-leader-choose .el-radio__label {
+    font-size: 16px;
+}
+
+.el-transfer-panel__body {
+    height: 275px;
+}
+
+.details .el-input__inner {
+    color: #666;
+    font-size: 15px;
+    width: 600px;
+}
+
+.details .el-textarea__inner {
+    color: #666;
+    font-size: 15px;
+    width: 600px;
+    height: 300px;
+}
+
+.j-group-slogan .el-input__inner {
+    color: #666;
+    font-size: 15px;
+    width: 400px;
+}
+
+.j-group-detail .el-textarea__inner {
+    color: #666;
+    font-size: 15px;
+    width: 400px;
+    height: 68px;
+}
+
+.j-group-detail .el-form-item__content {
+    padding: 4px 0 0 0!important;
+}
+
+
+/*提示框颜色间距重置*/
+
+.el-message-box {
+    width: 660px;
+}
+
+.other .el-message-box .el-message-box__message p {
+    font-size: 18px;
+    color: #333;
+}
+
+.other .el-message-box .el-message-box__btns .el-button--primary {
+    background: #35a69d;
+    color: #fff;
+    padding: 9px 30px;
+    font-size: 14px;
+}
+
+.other .el-message-box .el-message-box__status {
+    font-size: 25px!important;
+    margin-top: 2px;
+}
+
+.other .el-message-box .el-message-box__content {
+    line-height: 40px;
+}
+
+.other .el-message-box .el-message-box__message {
+    margin-left: 5px!important;
+}
+
+.other .el-message-box .el-button {
+    padding: 9px 30px;
+}
+
+
+/*微信端层*/
+
+.dialog-form-wechat .el-dialog__header {
+    border-bottom: 1px solid #F0F0F0;
+    background: #fff;
+    text-align: center;
+    color: #333;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    height: 120px;
+}
+
+.dialog-form-wechat .el-dialog__header .el-dialog__title {
+    font-size: 24px;
+    font-weight: 400;
+    padding-bottom: 15px;
+    color: #333;
+}
+
+.dialog-form-wechat .el-dialog__body {
+    background: #F7F7F7;
+    padding-top: 30px;
+    padding-right: 15px!important;
+    text-align: center;
+}
+
+.dialog-form-wechat .el-dialog__footer {
+    text-align: center;
+    background: #F7F7F7;
+}
+
+/*课程、项目任务添加活动弹层高度
+============================================================================================================*/
+#waddActivity .el-dialog__body{
+    max-height: 600px;
+}
+

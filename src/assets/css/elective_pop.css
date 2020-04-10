@@ -1,0 +1,156 @@
+/**********选修课基本信息弹出框样式**************/
+.electiveBasciWrapper .line.el-col{
+    visibility: hidden;
+}
+.electiveBasciWrapper .el-date-editor.el-input{
+    width: auto;
+    max-width: 220px;
+}
+.electiveBasciWrapper .el-textarea{
+    max-width: 458px;
+}
+.electiveBasciWrapper .el-form{
+    box-shadow: 0 2px 9px 0 rgba(0,0,0,0.10);
+    max-width: 634px;
+    padding: 20px 10px;
+    margin: 0 auto;
+}
+.electiveBasciWrapper .el-dialog__body{
+    padding: 30px 0;
+}
+.electiveBasciWrapper .dialog-footer{
+    text-align: center;
+}
+.electiveBasciWrapper .dialog-form .el-dialog__header{
+    text-align: center;
+}
+
+/*********************修改字选修课弹出框样式****************************/
+.electiveChildWrapper .line.el-col{
+    visibility: hidden;
+}
+.electiveChildWrapper .el-date-editor.el-input{
+    width: 220px;
+}
+
+.electiveChildWrapper .el-form{
+    box-shadow: 0 2px 9px 0 rgba(0,0,0,0.10);
+    max-width: 634px;
+    padding: 20px 10px;
+    margin: 0 auto;
+    padding-right: 50px;
+}
+.electiveChildWrapper .el-dialog__body{
+    padding: 30px 0;
+}
+.electiveChildWrapper .electiveChildWrapper .dialog-footer{
+    text-align: center;
+}
+.electiveChildWrapper .dialog-form .el-dialog__header{
+    text-align: center;
+}
+.electiveChildWrapper .courseNumber{
+    font-size: 20px;
+    color: #333333;
+    line-height: 40px;
+}
+.electiveChildWrapper .el-select{
+    width: 160px;
+    margin-right: 6px;
+}
+.electiveChildWrapper .el-input.littleInput{
+    width: 90px;
+}
+.electiveChildWrapper .inlineForm{
+    display: inline-block;
+}
+.electiveChildWrapper .unit{
+    font-size: 18px;
+    color: #333333;
+    margin-left: 10px;
+}
+
+.electiveChildWrapper .limitForm .el-form-item__error{
+    left: -90px;
+}
+.electiveChildWrapper .dialog-form .el-dialog__body{
+    padding: 30px 0;
+}
+.electiveChildWrapper  .el-dialog__body{
+    max-height: 600px;
+}
+.electiveChildWrapper .dialog-footer{
+    text-align: center;
+}
+/*********************修改创建课程弹出框****************************/
+
+.dialog-take .el-dialog__header {
+    text-align: center;
+}
+.dialog-take .el-dialog__footer {
+    text-align: center;
+}
+.dialog-take .el-dialog__body{
+    background-color: #f7f7f7;
+    padding: 25px 0;
+
+}
+.dialog-take .el-form {
+    width: 566px;
+    margin: 0 auto;
+}
+.dialog-take .panel {
+    background: #FFFFFF;
+    box-shadow: 0 2px 9px 0 rgba(0,0,0,0.10);
+    border-radius: 9px;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+.dialog-take .panel .sub-title {
+    font-size: 18px;
+    color: #333333;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+.dialog-take .el-input {
+    width: 100%;
+}
+.dialog-take .el-input__inner {
+    width: 190px;
+}
+.dialog-take .auto .el-input__inner {
+    width: 390px;
+}
+.dialog-take .select .el-input__inner {
+    width: 130px;
+}
+.dialog-take .el-textarea__inner{
+    width: 390px;
+    height: 110px;
+}
+.dialog-take .inlineForm{
+    display: inline-block;
+    width: auto;
+}
+.dialog-take .inlineForm.num {
+    margin-left: 20px;
+}
+.dialog-take .inlineForm.num .el-input__inner{
+    width: 70px;
+}
+.dialog-take .el-select {
+    width: 130px;
+}
+.dialog-take .addtakecourse {
+    display: block;
+    margin: 0 auto;
+    width: 132px;
+    height: 36px;
+    border: 1px solid #5CB7FF;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 34px;
+    color: #5CB7FF;
+    text-align: center;
+    background-color: #FFFFFF;
+}

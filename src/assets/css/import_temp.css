@@ -1,0 +1,96 @@
+.dialog-temp .el-dialog__body {
+    padding: 0;
+}
+.dialog-temp .el-dialog__header {
+    height: 58px;
+    background-color: #35a69d;
+    border-radius: 4px 4px 0 0;
+    padding: 16px 0 16px 50px;
+}
+.import-temp{
+	padding: 50px;
+    /*padding:50px 0 50px 50px;*/
+    font-size:16px;
+    line-height: 1.2em;
+    color:#666;
+}
+
+.import-temp .blue {
+    color: #1077D7;
+}
+.import-temp .link {
+    margin-left: 16px;
+    border-bottom: 1px solid #1077D7;
+    padding-bottom: 3px;
+}
+.import-temp p{
+    line-height: 1.5em;
+    /*margin-bottom: 35px;*/
+    margin-bottom: 20px;
+}
+.import-temp .upload{
+    position: relative;
+    height: 32px;
+    line-height: 1em;
+}
+
+.import-temp .btn-upload{
+    /*padding-top:10px;*/
+    margin-top: 40px;
+}
+
+.import-temp .btn-upload1{
+    margin-top: 20px;
+}
+
+.import-temp .name{
+    position: absolute;
+    margin-top: -5px;
+    display: inline-block;
+    background: #ededed;
+    color: #333;
+    text-align: center;
+    padding: 6px 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width:100%;
+    overflow: hidden;
+}
+  
+.import-temp .sel2,
+.import-temp .sel1 {
+    position: absolute;
+    display: inline-block;
+    width: 65px;
+    height: 1em;
+    font-size: 16px;
+    color: #1077D7;
+    line-height: 1em;
+    text-align: center;
+    cursor:pointer;
+}
+.import-temp .sel1 {
+    opacity: 0;
+}
+.import-temp .sel2 {
+    background: none;
+    /*margin-top: 7px;*/
+}
+.import-temp .require{
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+    margin-top: 5px;
+}
+.import-temp .btn-green-upload {
+    padding: 7px 22px;
+    font-size: 16px;
+    color: #fff;
+    background: #43bdb3;
+    border: 1px solid #35a69d;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+
+

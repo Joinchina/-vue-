@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html id="gethtml">
+	<head>
+		<meta charset="UTF-8">
+		<title>评价模板</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<meta name="referrer" content="no-referrer">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	    <meta name="keywords" content="" />
+	    <meta name="description" content="" />
+	    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<!-- 引入样式 -->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<!-- 引入组件库 -->
+		<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.2.1/echarts.min.js"></script>
+		<style type="text/css">
+			body{
+				margin: 0;
+				padding: 0;
+			}			
+			#app{
+				width: 1000px;
+				margin: 0 auto;
+			}
+			#app .title{
+				width: 100%;
+				overflow: hidden;
+			}
+			#app .title h1{
+				font-size: 22px;
+			    font-weight: normal;
+			    margin: 0;
+			    padding-bottom: 16px;
+			}
+			#app .title p{
+				font-size: 16px;
+			    font-weight: normal;
+			    margin: 0;
+			    padding-bottom: 16px;
+			}
+			.table_box{
+				width: 100%;
+				overflow: hidden;				
+			}
+			.table_box ul {
+				width: 100%;
+				overflow: hidden;
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			.table_box ul li{
+				 list-style: none;
+				 padding: 0;
+				 margin: 0;
+				padding-bottom: 20px;
+				border-bottom: 1px solid #e6e6e6;
+				overflow: hidden;
+			}
+			.table_box ul li h3{
+				font-weight: normal;
+    		font-size: 20px;
+			}
+			.table_box ul li .pie{
+				padding-top: 38px;
+				overflow: hidden;
+			}
+			.table_box ul li .pie .left{
+				float: left;
+				padding-left: 72px;
+				padding-right: 90px;
+				font-size: 12px;
+			}
+			.table_box ul li .pie .left-table-dis{
+					padding-top: 70px;
+					padding-left: 0;
+					float: left;
+					padding-right: 90px;
+					font-size: 12px;
+			}
+			.table_box ul li .pie .left table{
+				border-collapse: collapse;
+    		border-spacing: 0;
+			}
+			.table_box ul li .pie .left table th{
+					border: 1px solid #dfdfdf;
+					padding-left: 6px;
+					padding-top: 9px;
+					padding-bottom: 9px;
+					font-size: 14px;
+			}
+			.table_box ul li .pie .left table td{
+				border: 1px solid #dfdfdf;
+				padding-left: 6px;
+				padding-top: 9px;
+				padding-bottom: 9px;
+				font-size: 12px;
+			}
+			.table_box ul li .table-big{
+					width: 80%;
+					margin: 43px 0 0 53px;
+			}
+			.table_box ul li .table-big th{
+					border: 1px solid #dfdfdf;
+					padding-left: 6px;
+					padding: 7px 0 7px 7px;
+			}
+			.table_box ul li .table-big td{
+				border: 1px solid #dfdfdf;
+				padding-left: 6px;
+				padding: 7px 0 7px 7px;
+				font-weight: normal;
+			}
+			/* 关键词	 */
+			.keyword{
+				width: 100%;
+				overflow: hidden;
+				margin-top:20px;
+				margin-left:53px;				
+			}
+			.keyword h2{
+					float: left;
+					font-size: 16px;
+					color: #39467F;
+			}
+			.keyword	span{
+					border-top-right-radius: 30px;
+					border-top-left-radius: 30px;
+					border-bottom-right-radius: 30px;
+					font-size: 14px;
+					color: #333333;
+					margin-right: 16px;
+					padding: 0px 10px;
+					cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<section id="app">
+			<div class="title">
+				<h1>{{title}}</h1>
+				<p>班级：{{clazzName}}</p>
+				<p>课程：{{courseName}}</p>
+				<p>主讲人：{{mainTeacherName}}</p>
+				<p>课程日期：{{beginTime}}</p>
+				<p>提交人数：{{submitNum}} &nbsp;&nbsp;&nbsp;&nbsp;题目总数：{{questionCount}}</p>
+			</div>
+			<div class="table_box">
+				<ul>
+					<li v-for = "(item,index) in questionArray" v-if="item.type == 'SELECT'">
+			            <h3>{{index + 1}}.{{item.question}}</h3>
+			            <div class="pie clearfix">
+			                <div class="left">
+			                    <div :id="'myChartPie_'+index" :style="{width: '300px', height: '300px'}"></div>						                   
+			                </div>
+			                <div class="left left-table-dis">
+			                  <table  width="400" border="0" cellspacing="0" cellpadding="0" class="table-small">
+			                    <tr>
+			                      <th>答题选项</th>
+			                      <th>选择情况</th>
+			                      <th>百分比</th>
+			                    </tr>
+			                    <tr v-for="(nitem,index) in item.optionStatistics">
+			                      <td>{{nitem.optionContent}}</td>
+			                      <td>{{nitem.selectedCounts}}</td>
+			                      <td v-if="submitNum != 0">{{Math.round(nitem.selectedCounts*100 / submitNum)}}%</td>
+			                      <td v-else>0%</td>
+			                    </tr>
+			                  </table>
+			                </div>
+			            </div>
+			          </li>
+			          <li v-else-if="item.type == 'MUILTSELECT'">
+			            <h3>{{index + 1}}.{{item.question}}</h3>
+			            <div style="margin-left:80px; margin-top:50px;">
+			              <div :id="'myChartBar_'+index" :style="{width: '700px', height: '300px'}"></div>
+			            </div>
+			          </li>
+			          <li v-else-if="item.type == 'SUBJECTIVE'">
+			            <h3>{{index + 1}}.{{item.question}}</h3>
+			            <!-- 新增关键字 -->
+			            <div class="keyword">
+			                 关键词：<span v-for="(word,index) in item.keywords" :key="index" :style="{background:keywordColor[index%5],border:'1px solid '+keywordColor[index%5]+''}">{{word}}</span>
+			            </div>			
+			            <table  border="0" cellspacing="0" cellpadding="0" class="table-big">          
+			              <tr>
+			                <th width="15%">序号</th>
+			                <th>提交内容</th>
+			              </tr>
+			              <tr v-for="(items,indexs) in item.answers">
+			                <td>{{indexs + 1}}</td>
+			                <td>{{items }}</td>
+			              </tr>
+			            </table>			
+			          </li>
+				</ul>
+			</div>
+		</section>
+		<script type="text/javascript">
+			window.onload=function(){
+				new Vue({
+					el:"#app",
+					data:{
+						  clazzId:"",
+				          paperId:"",
+				          crumbType:"",
+				          reportBtnFlag:false,
+				          reportBtnSeconds:5,
+				          eData:{},
+				          questionArray:[],
+				          pieDataArray:[],
+				          pieTableArray:[],
+				          chartArray:[],
+				          chartArray2:[],
+				          barDataArray:{
+				            name:[],
+				            value:[]
+				          },
+				          piePercentage:0,
+				          submitNum:0,
+				          urls:"",
+				          keywordColor:['#DAFFEE','#FFE25C','#EEEEEE','#FFE0DF','#EEEEEE'],//高频词的四种颜色
+				          title:"",
+				          questionCount:'',
+				          clazzName:'',
+				          courseName:"",
+				          mainTeacherName:"",
+				          beginTime:"",
+					},
+					created(){
+						this.$nextTick(()=>{
+							this.getquesList()
+						})						
+						
+					},
+					methods:{
+						getquesList:function(){
+							//获取url参数
+							let parameter=this.GetUrlParms();
+							//发送一个https情求，在请求钱判断一下线上线下环境设置不同的baseUrl
+							let url="";
+							if(window.location.host=='10.98.24.67' || window.location.host=='mgr.shixunbao.cn'||window.location.host=='mgr.shixunbao.cn:8081'){
+								url='/questionpaper/getEvaluationDetail'
+							}else{
+								url='/api/questionpaper/getEvaluationDetail'
+							}
+							console.log(parameter)
+							let baseUrl=""							
+							axios({
+							  method: 'get',
+								baseURL: baseUrl,
+								headers:{
+								'Content-Type': 'application/x-www-form-urlencoded',
+								'Accept': 'application/json;charset=UTF-8',
+								'Authorization': parameter.token
+							  },
+							  url: url,
+							  params: {
+							    paperId :parameter.paperId ,
+							  }
+							}).then(res=>{
+								if(res.status==200){
+										console.log(res)
+										var _this = this;
+									this.eData = res.data.data;
+									this.submitNum = res.data.data.submitNum;
+									this.questionArray = res.data.data.questions;
+			
+										//加载模板后执行方法
+										this.$nextTick(function () {
+											_this.questionArray.forEach(function (item,index) {
+												let options = item.optionStatistics;				
+												if(item.type == "SELECT"){
+														let options = item.optionStatistics;
+														options.forEach(function (items,indexs) {
+															_this.pieDataArray[indexs] = {
+																value: items.selectedCounts,
+																name: items.optionContent
+															}
+														})				
+													var chartObj = _this.drawLine(index,"myChartPie_","pie",_this.pieDataArray);
+													_this.chartArray.push(chartObj);								
+												}else if(item.type == "MUILTSELECT"){				
+														options.forEach(function (items,indexs) {
+															_this.barDataArray["name"][indexs] = items.optionContent
+															_this.barDataArray["value"][indexs] = items.selectedCounts
+														})
+														var chartObj = _this.drawLine(index,"myChartBar_","bar",_this.barDataArray);
+														_this.chartArray.push(chartObj);											
+												}else if(item.type == "SUBJECTIVE"){
+														_this.barDataArray["name"][index] = "answer"
+														_this.barDataArray["value"][index] = "answer"
+														_this.chartArray.push(_this.barDataArray);
+												}
+											})
+									})							
+									this.title=res.data.data.title;
+									this.clazzName=res.data.data.clazzName;
+									this.courseName=res.data.data.courseName;
+									this.mainTeacherName=res.data.data.mainTeacherName;
+									this.beginTime=res.data.data.beginTime
+								}
+								
+							}).catch(err=>{
+								console.log(err)
+							})																								
+						},
+						drawLine:function(index,name,type,data){
+							let myChart = echarts.init(document.getElementById(name + index));
+							//饼形图
+							if(type == "pie"){
+									this.pieReport(myChart,data);
+							//柱形图
+							}else{
+									this.barReport(myChart,data);
+							}
+							return myChart;
+
+						},
+						pieReport:function(myChartPie,data){
+							  console.log('获取bing形图数据',data)
+								myChartPie.setOption(
+								{
+									title : {
+										subtext: '已提交人数：'+this.submitNum+"人",
+										x:'center'
+									},
+									animation:false,
+									tooltip : {
+										trigger: 'item',
+										formatter: "{a} <br/>{b} : {c} ({d}%)"
+									},
+									series : [
+										{
+											name: '访问来源',
+											type: 'pie',
+											radius : '55%',
+											center: ['50%', '60%'],
+											data:data,
+											itemStyle: {
+												emphasis: {
+													shadowBlur: 10,
+													shadowOffsetX: 0,
+													shadowColor: 'rgba(0, 0, 0, 0.5)'
+												}
+											}
+										}
+									]
+								}
+							)
+						},
+						barReport:function(myChartBar,dataname){
+							console.log('获取条形图数据',dataname)
+							myChartBar.setOption(
+								{
+									title: {
+										subtext: '已提交人数：'+this.submitNum+"人",
+										x:'left'
+									},
+									animation:false,
+									tooltip: {
+										trigger: 'axis',
+										axisPointer: {
+											type: 'shadow'
+										}
+									},
+									grid: {
+										left: '3%',
+										right: '4%',
+										bottom: '3%',
+										containLabel: true
+									},
+									xAxis: {
+										type: 'value',
+										boundaryGap: [0, 0.01]
+									},
+									yAxis: {
+										type: 'category',
+										data: dataname["name"]
+									},
+									series: [
+										{
+											name: '人数',
+											type: 'bar',
+											data: dataname["value"]
+										}
+									]
+								}
+							)
+						},
+						//获取url传递过来的参数
+						GetUrlParms:function() {
+						 var args=new Object();
+						 var query=window.location.search.substring(1);//获取查询串 
+						 var pairs=query.split("&");//在&处断开 
+						 for(var i=0;i<pairs.length;i++) { 
+						  var pos=pairs[i].indexOf('=');//查找name=value 
+						   if(pos==-1) continue;//如果没有找到就跳过 
+						   var argname=pairs[i].substring(0,pos);//提取name 
+						   var value=pairs[i].substring(pos+1);//提取value 
+						   args[argname]=unescape(value);//存为属性 
+						 };
+						 return args;
+						},
+					},
+				})
+			}
+		</script>
+	</body>
+</html>

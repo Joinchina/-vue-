@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>师训宝管理后台</title>
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!-- <link rel="shortcut icon" href="/static/favicon.ico" /> -->
+    <!-- 阿里云上传 -->
+
+    <script src="https://gosspublic.alicdn.com/aliyun-oss-sdk-4.13.2.min.js"></script>
+    <!-- <script src="./static/js/clipBorad.js"></script> -->
+
+</head>
+
+<body>
+<script>
+    if(window.location.host == "mgr.shixunbao.cn"){
+        let hashChange = function (hash) {
+            var page = location.hash.replace(/^#/, '').replace(/\?.*$/, '');
+            return page || '[index]';
+        }
+        !(function(c,b,d,a){c[a]||(c[a]={});c[a].config={pid:"bm1oo6nlqa@064d967f1f9da05",parseHash: hashChange,enableSPA:true,sendResource:true,useFmp:true,appType:"web",imgUrl:"https://arms-retcode.aliyuncs.com/r.png?"};
+        with(b)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("crossorigin","",src=d)
+        })(window,document,"https://retcode.alicdn.com/retcode/bl.js","__bl");
+    }
+</script>
+    <div id="app">
+
+    </div>
+
+
+    <!-- built files will be auto injected -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?7d1dd0b5d1c4afd0e8c79b4ca3d4ca7d";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- 测试 -->
+
+    <!--兼容浏览器判断展现-->
+    <script type="text/javascript">
+        function createElement() {
+            var div = '<div class="wrapper" id="browserCompatible" style="width:600px;margin:50px auto 0 auto;">' +
+                '<div class="left" style="float:left">' +
+                '<img src="static/img/error.png">' +
+                '</div>' +
+                '<div class="rg" style="float:left;margin-left:20px;">' +
+                '<p>对不起,您使用的浏览器暂时不支持该网站,请使用以下浏览器：</p>' +
+                '<p>谷歌、火狐、IE9及以上</p>' +
+                '<div class="commend" style="margin-left:10px;margin-top:40px;">' +
+                '<div style="float:left;margin-top:40px;color:red;">推荐使用：</div><div style = "float:left"><a href="https://www.google.cn/chrome/"><img src="static/img/chrome.png" style="border:0"></a></div>' +
+                '</div>' +
+                '</div>' +
+                '</div>'
+            return div;
+        }
+
+        function IEVersion() {
+            var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串  
+            var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器  
+            var isEdge = userAgent.indexOf("Edge") > -1 && !isIE; //判断是否IE的Edge浏览器  
+            var isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1;
+            if (isIE) {
+                var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+                reIE.test(userAgent);
+                var fIEVersion = parseFloat(RegExp["$1"]);
+                if (fIEVersion == 7) {
+                    return 7;
+                } else if (fIEVersion == 8) {
+                    return 8;
+                } else if (fIEVersion == 9) {
+                    return 9;
+                } else if (fIEVersion == 10) {
+                    return 10;
+                } else {
+                    return 6; //IE版本<=7
+                }
+            } else if (isEdge) {
+                return 'edge'; //edge
+            } else if (isIE11) {
+                return 11; //IE11  
+            } else {
+                return -1; //不是ie浏览器
+            }
+        }
+        if (IEVersion() < 9 && IEVersion() != -1) {
+            document.getElementById("app").innerHTML = createElement();
+        }
+    </script>
+
+</body>
+
+</html>

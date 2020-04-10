@@ -1,0 +1,117 @@
+.button-live .el-icon-arrow-down:before{
+	content:"\E60B";
+}
+.sendMsg .el-button{
+    overflow: hidden;
+    padding: 5px 7px 4px 7px!important;
+    font-size: 12px!important;
+}
+.sendMsg .staffname{
+	width: 48px;
+	display: inline-block;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.sendMsg .tab-distance{
+    display: inline-block;
+    padding-top: 7px;
+    padding-right: 25px;
+}
+.sendMsg .el-icon--right{
+	vertical-align: top;
+}
+@media(max-width: 1660px){
+	.sendMsg .el-button{
+	    padding: 5px 7px 4px 7px!important;
+	}
+	.sendMsg .tab-distance{
+	    display: inline-block;
+	    padding-right: 10px;
+	}
+	
+}
+@media(max-width: 1440px){
+	.sendMsg .el-button{
+	    padding: 5px 2px 4px 0px!important;
+	}
+	.sendMsg .tab-distance{
+	    display: inline-block;
+	    padding-right: 6px;
+	}
+	
+}
+@media(max-width: 1280px){
+	.sendMsg .el-button{
+	    padding: 5px 0 4px 0!important;
+	}
+	.sendMsg .tab-distance{
+	    display: inline-block;
+	    padding-right: 0;
+	}
+	.sendMsg .tab{
+		padding: 0!important;
+	}
+}
+.sendMsg .el-button--primary{
+	background: #6EA5A7;
+	border:none;
+	overflow:hidden;
+}
+.sendMsg .el-dropdown{
+	
+}
+
+.sendMsggray .el-button--primary{
+	background: gray!important;
+}
+.button-gray .el-button--primary{
+	background: gray!important;
+} 
+.staff .el-icon-arrow-down:before{
+	content: "";
+	width: 20px;height: 20px;
+	background: url(../../assets/img/liveIcon/more.png) no-repeat;
+	display: block;
+	background-size: 100%;
+	position: absolute;
+	top: 5px;
+}
+.staff .el-switch{
+	top: -2px!important;
+}
+.el-dropdown-menu{
+	max-height: 40vh!important;
+	overflow-y: auto;
+}
+.textareaBg .el-textarea__inner{
+	background: #2d333e!important;
+	border-radius: 0!important;
+	border:none!important;
+	color: #fff!important;
+	resize: none;
+}
+.textareaBg .el-textarea__inner::-webkit-input-placeholder {
+        color: #666;         
+ }
+ .textareaBg .el-form-item__error{
+ 	left: 10px!important;
+ }
+.staff .el-input__inner{
+	background: #3c4455 url(../../assets/img/liveIcon/search.png) 10px center no-repeat;
+	background-size: 20px 21px;
+	border-radius: 25px!important;
+	border: none!important;
+	text-align: left;
+	padding-left: 35px;
+	color: #fff!important;
+	height: 4vh;
+}
+/*.staff .el-input__inner:before{
+	content: "";
+	width: 20px;height: 20px;
+	background: url(../../assets/img/liveIcon/more.png) no-repeat;
+	display: block;
+	background-size: 100%;
+	position: absolute;
+	top: 5px;
+}*/

@@ -1,0 +1,12 @@
+.live-tip .el-dialog__title {
+    font-size: 20px;
+    color: #000;
+}
+
+.live-tip .el-dialog__body {
+    padding: 15px 20px;
+}
+
+.live-tip .el-dialog {
+    border-radius: 10px;
+}

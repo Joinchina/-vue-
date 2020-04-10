@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title>师训宝管理后台</title>
+<meta name="apple-itunes-app" content="app-id=1188543053, app-argument=MgrSchemes://download">
+<meta  name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style type="text/css">
+*{
+	padding: 0;
+	margin: 0;
+}
+html{
+	font-size: 100%;
+}
+ul li{
+	list-style: none;
+}
+input[type="submit"],
+ input[type="reset"],
+ input[type="button"],
+ input[type="text"],
+ button { -webkit-appearance: none; }
+.l_load{}
+.l_load .first_screen{
+	border-bottom: 1px solid #eeeeee;
+}
+.l_load .header{
+	padding: 1.5rem 0 0 0;
+	height: 4.625rem; 
+	text-align: center;
+}
+.l_load .btn_xy{
+	position: absolute;
+	right: 1rem;
+	top: 0.5rem;
+}
+
+.l_load .header img{ 
+	width:9.888rem;
+	height:3.376rem; 
+}
+.l_load .img_bg{
+	padding-top: 39px;
+	background: #f5f5f5;
+}
+.l_load .img_bg .img_width{
+	width: 80%;
+	margin: 0 auto;
+}
+.l_load .btn_xy img{
+	width:2.34rem;
+	height:1.044rem; 
+}
+.l_load .load_q{
+	padding-left: 2rem;
+	padding-right:2rem;
+	padding-top:2rem;
+}
+.l_load .load_q a.input_class{
+	width: 100%;
+	height: 3rem;
+	line-height: 3rem;
+	background:#1cabeb;
+	text-align: center;
+	color: #fff;
+	border-radius: 5px;
+	border: 0;
+	font-size: 1rem;
+	display:inline-block;
+	font-weight:bold;
+}
+.l_load .load_q a.input_class:hover{
+	text-align:none;
+}
+.l_load .second_screen{
+	width: 86%;
+	color: #666;
+	font-size: 1rem;
+	margin: 2rem auto 0 auto;
+	line-height: 4.1rem;
+}
+.l_load .seond_screen li{}
+.l_load .second_screen .one{
+  background:url("./img/load/l_top_8.png") no-repeat left center;
+  background-size:3.28rem 3.28rem;
+  /*height: 4.1rem;*/
+  padding: 0 0 0 4rem;
+  margin:0 0 2rem 0;
+}
+.l_load .second_screen li.two{
+  background:url("./img/load/l_top_6.png") no-repeat left center;
+   background-size:3.28rem 3.28rem;
+  height: 4.1rem;
+  padding: 0 0 0 4rem;
+  margin:0 0 2rem 0;
+}
+.l_load .second_screen li.three{
+  background:url("./img/load/l_top_7.png") no-repeat left center;
+   background-size:3.28rem 3.28rem;
+   padding: 0 0 0 4rem;
+    margin:0 0 2rem 0;
+}
+.opcity_lay{display:none}
+.opcity_lay img{
+	width:100%;
+	height:100%;
+}
+.opcity_lay .opcity{
+	position:fixed; 
+	top :0px;
+	left:0;
+	top:0;
+	right:0;
+	bottom:0;
+	opacity:0.8;
+	background: #000;
+	z-index:1040;
+	text-align:center
+	
+}
+.opcity_lay .opcity_text{
+	position:absolute;
+	left:8%;
+	top:21%;
+	z-index:1050;
+	width:17.5rem;
+	height:4.865rem;
+	
+}
+.opcity_lay .opcity_arrow{
+	position:absolute;
+	right:5%;
+	top:1%;
+	z-index:1050;
+	width:3.5em;
+	height:5.6875rem;
+}
+.opcity_lay .opcity_footer{
+	bottom:30%;
+	z-index:1050;
+	margin:0 10%;
+	position:absolute;
+	width:80%;
+}
+.opcity_lay .opcity_footer .opcity_close{
+	border:1px solid #a1a1a1;
+	background:#757575;
+	line-height:3.0625rem;
+	color:#fff;
+	border-radius:50px;
+	font-size:1.2rem;
+	width:100%;
+	height:100%;
+	font-weight:bold;
+}
+a.question ,a.question:hover{
+	display: inline-block;
+	text-align: center;
+	color:#6AB9FF;
+	width: 100%;
+	text-decoration: none;
+	margin:10px 0;
+	font-size: 14px;
+}
+.footer{
+	height:100px;
+	line-height:100px;
+	text-align:center;
+	color:#999;
+	font-size:0.8rem;
+}
+</style>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body>
+<div class="l_load">
+	<!--fist_screen_start-->
+	<div class="first_screen">
+		<!--header_start-->
+		<header class="header">
+			<div class="btn_xy" style="display:none">
+				<img src="./img/load/l_top_3.png">
+			</div>
+			<img src="./img/load/l_logo.png">
+		</header>
+		<!--header_end-->
+
+		<!--mid_start-->
+		<div class="img_bg">
+			<div class="img_width"><img src="./img/load/m_pic.png" style="width: 100%; height:auto;"></div>
+		</div>
+		<!--mid_end-->
+
+		<div class="load_q">
+			<a href="javascript:void(0)" class="input_class" value="立即下载" id="load" style="text-decoration:none">立即下载</a>
+		</div>
+
+		<!--下载遇到问题-->
+		<a href="http://www.shixunbao.cn/help/index.html#/help/details?type=MANAGER&columnId=16&id=42" class="question">下载遇到问题?</a>
+	</div>
+	<!--first_screen_end-->
+	<!--fist_screen_start-->
+	<ul class="second_screen">
+		<li class="one">一键掌握培训安排和最新动态</li>
+		<li class="two">了解培训任务要求及学习进度</li>
+		<li class="three">师友互动、同伴互助专业发展</li>
+	</ul>
+	<!--fist_screen_start-->
+	<!-- foooter_start -->
+	<div></div>
+	<!-- footer_end -->
+</div>
+<div class="opcity_lay">
+	<div class="opcity"></div>
+	<div class="opcity_text"><img src = "./img/load/load_1.png" ></div>
+	<div class = "opcity_arrow"><img src = "./img/load/load_2.png"></div>
+	<div class="opcity_footer">
+			<input type="button" value = "关闭" class="opcity_close" style="width:100%;heihgt:100%;">
+	</div>
+</div>
+
+<script type="text/javascript">
+//浏览器扫描，qq浏览器扫描，层不显示，如果为微信内部的话层显示。
+var downloadUrl;
+layWetherOpen();
+function loadMethod(){
+	var getTime = new Date().getTime();
+	var u = navigator.userAgent;
+	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+	var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+
+	if(isiOS){
+		var url = "https://itunes.apple.com/cn/app/id1188543053?mt=8";
+	}else{
+		var url = "http://res.shixunbao.cn/app/ttManager-latest.apk?time="+getTime;
+	}
+
+	$("#load").attr("href",url);
+}
+function layWetherOpen(){
+	var ua = navigator.userAgent.toLowerCase();
+	//在微信端此层向上展示
+	 if (ua.match(/MicroMessenger/i) == "micromessenger") {
+		    //load下载
+			$("#load").click(function(){
+
+				$(document).scrollTop(0);
+				$(".opcity_lay").show();
+			})
+			$(".opcity_close").click(function(){
+				$(".opcity_lay").hide();
+			})
+	}else{
+		loadMethod();
+	}
+}
+
+$(".gray").focus(function(){
+	$(this).attr("style","color:#000");
+})
+
+</script>
+</body>
+</html>
